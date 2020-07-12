@@ -2,50 +2,83 @@
 <html>
 <head>
 	<title>FORM</title>
+	<link rel="stylesheet" type="text/css" href="pesan.css">
 </head>
 <body>
-	<form action="proses.php" method="get">
+	<div class="header">
+	<center><h3>Pemesanan Kaos</center></h3>
+		</div>
+		<div class="content">
+	<form action="tampil.php" method="_GET">
 		<table border="0">
 		<tr>
 		<td>Nama</td>
 		<td>: <input type="text" name="nama"></td>	
 		</tr>
 		<tr>
-		<td>Kelas</td>
-		<td>: <input type="Kelas" name="Kelas"></td>	
+		<td>RT</td>
+		<td>: <select name="RT">
+		<option value="05">05</option>
+		<option value="06">06</option>
+		<option value="07">07</option>
+		<option value="08">08</option>
+		<option value="09">09</option></td>
 		</tr>
 		<tr>
-		<td>Jenis Kelamin</td>
-		<td>: <input type="radio" name="Laki-Laki">Laki-Laki
-			<input type="radio"name="Perempuan">Perempuan</td>
+		<td>Ukuran</td>
+		<td>: <input type="radio"name="XS">XS 
+			<input type="radio" name="S">S
+			<input type="radio"name="M">M
+			<input type="radio"name="L">L
+			<input type="radio"name="XL">XL
+			<input type="radio"name="XXL">XXL</td>
 		</tr>
 		<tr>
-		<td>Hobi</td>
-		<td>: <input type="checkbox" name="Hobi" value="SB">Sepak Bola
-		<input type="checkbox" name="Hobi" value="R">Renang
-		<input type="checkbox" name="Hobi" value="BT">Bulutangkis
-		<input type="checkbox" name="Hobi" value="MB">Membaca
-		<input type="checkbox" name="Hobi" value="LN">Lainnya</td>	
-		</tr>
+		<td>Lengan</td>
+		<td>: <input type="radio"name="Pendek">Pendek
+		<input type="radio"name="Panjang">Panjang 
 		<tr>
-		<td>Agama</td>
-		<td>: <select name="Agama">
-		<option value="Islam">Islam</option>
-		<option value="Kristen">Kristen</option>
-		<option value="Budha">Budha</option>
-		<option value="Katolik">Katolik</option>
-		<option value="Hindu">Hindu</option></td>
-		</tr>
-		<tr>
-		<td>Alamat</td>
-		<td><textarea name="textarea" rows="5" cols="20"></textarea></td>	
+		<td>Kontak yang dapat dihubungi</td>
+		<td>: <input type="Kontak" name="Kontak"></td>
 		</tr>
 		<tr>
 		<td>
 			<input type="submit" name="simpan" value="Simpan">
 			<input type="reset" value="Batal">
 		</td>	
-		</tr>	
+		</tr>
 
+		<?php 
+	if(isset($_GET['Nama'])){
+		if($_GET['Nama'] == "kosong"){
+			echo "<h4 style='color:red'>Nama Belum Diisi !</h4>";
+		}
+	}
+	if(isset($_GET['RT'])){
+		if($_GET['RT'] == "kosong"){
+			echo "<h4 style='color:red'>RT Belum Diisi!</h4>";
+		}
+	}
+	if(isset($_GET['Ukuran'])){
+		if($_GET['Ukuran'] == "kosong"){
+			echo "<h4 style='color:red'>Ukuran Kaos Belum Diisi !</h4>";
+		}
+	}
+	if(isset($_GET['Lengan'])){
+		if($_GET['Lengan'] == "kosong"){
+			echo "<h4 style='color:red'>Lengan Kaos Belum Diisi !</h4>";
+		}
+	}
+	if(isset($_GET['Kontak'])){
+		if($_GET['Kontak'] == "kosong"){
+			echo "<h4 style='color:red'>Kontak Belum Diisi !</h4>";
+		}
+	}
+	
+	
+	?>
+
+
+		
 </body>
 </html>
